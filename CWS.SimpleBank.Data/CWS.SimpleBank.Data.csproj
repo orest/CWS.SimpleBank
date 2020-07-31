@@ -74,7 +74,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BankData.edmx</DependentUpon>
     </Compile>
+    <Compile Include="CertificateDeposit.cs">
+      <DependentUpon>BankData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CreditCardAccount.cs">
+      <DependentUpon>BankData.tt</DependentUpon>
+    </Compile>
     <Compile Include="Customer.cs">
+      <DependentUpon>BankData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoanAccount.cs">
       <DependentUpon>BankData.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -10,6 +10,12 @@
         <EntityTypeShape EntityType="Interview101Model.Customer" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
         <AssociationConnector Association="Interview101Model.FK_Account_TypeCode" ManuallyRouted="false" />
         <AssociationConnector Association="Interview101Model.CustomerAccount" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Interview101Model.CreditCardAccount" Width="1.5" PointX="5.25" PointY="7.625" />
+        <EntityTypeShape EntityType="Interview101Model.LoanAccount" Width="1.5" PointX="5.25" PointY="4.75" />
+        <InheritanceConnector EntityType="Interview101Model.LoanAccount" />
+        <InheritanceConnector EntityType="Interview101Model.CreditCardAccount" />
+        <EntityTypeShape EntityType="Interview101Model.CertificateDeposit" Width="1.5" PointX="5.25" PointY="10" />
+        <InheritanceConnector EntityType="Interview101Model.CertificateDeposit" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

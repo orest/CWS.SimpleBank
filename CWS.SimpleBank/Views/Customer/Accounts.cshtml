@@ -1,0 +1,117 @@
+﻿@model CWS.SimpleBank.Data.Customer
+
+@{
+    ViewBag.Title = "Accounts";
+}
+
+<h2>Accounts</h2>
+
+<div>
+    <h4>Customer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+    </dl>
+</div>
+@*Update logic to show the following section only if the customer has Loan Account *@
+<div>
+    <h3>Loan Accounts</h3>
+
+    <table class="table">
+        <tr>
+            <th>
+                Account Number
+            </th>
+            <th>
+                Current Balance
+            </th>
+            <th>
+                Term
+            </th>
+            <th>
+                APR
+            </th>
+            <th></th>
+        </tr>
+        @* List the loan accounts here *@
+    </table>
+</div>
+
+@*Update logic to show the following section only if the customer has Credit Card *@
+<div>
+    <h3>Credit Cards</h3>
+
+    <table class="table">
+        <tr>
+            <th>
+                Account Number
+            </th>
+            <th>
+                Current Balance
+            </th>
+            <th>
+                Purchase APR
+            </th>
+            <th>
+                Cash APR
+            </th>
+            <th></th>
+        </tr>
+        @* List the credit cards here *@
+    </table>
+</div>
+
+@*Update logic to show the following section only if the customer has Certificate of Deposit *@
+<div>
+    <h3>Certificate of Deposit</h3>
+
+    <table class="table">
+        <tr>
+            <th>
+                Account Number
+            </th>
+            <th>
+                Current Balance
+            </th>
+            <th>
+                Principal
+            </th>
+            <th>
+                Term
+            </th>
+            <th>
+                APY
+            </th>
+            <th></th>
+        </tr>
+        @* List the certificate of deposit here *@
+    </table>
+</div>
+
+
+<p>
+    @Html.ActionLink("Back to Customers", "GetAll")
+</p>

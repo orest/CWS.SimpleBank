@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Interview101Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Interview101Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Account">
           <Key>
             <PropertyRef Name="AccountNumber" />
@@ -20,6 +20,25 @@
           </Key>
           <Property Name="TypeCode" Type="varchar" MaxLength="4" Nullable="false" />
           <Property Name="Description" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CertificateDeposit">
+          <Key>
+            <PropertyRef Name="AccountNumber" />
+          </Key>
+          <Property Name="AccountNumber" Type="int" Nullable="false" />
+          <Property Name="Principal" Type="decimal" Precision="20" Scale="2" Nullable="false" />
+          <Property Name="Term" Type="int" Nullable="false" />
+          <Property Name="MaturityDate" Type="date" Nullable="false" />
+          <Property Name="APY" Type="decimal" Precision="10" Scale="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CreditCardAccount">
+          <Key>
+            <PropertyRef Name="AccountNumber" />
+          </Key>
+          <Property Name="AccountNumber" Type="int" Nullable="false" />
+          <Property Name="ExpirationDate" Type="date" Nullable="false" />
+          <Property Name="PurchaseAPR" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="CashAPR" Type="decimal" Precision="10" Scale="3" Nullable="false" />
         </EntityType>
         <EntityType Name="Customer">
           <Key>
@@ -37,6 +56,16 @@
           <Property Name="CustomerNumber" Type="int" Nullable="false" />
           <Property Name="AccountNumber" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="LoanAccount">
+          <Key>
+            <PropertyRef Name="AccountNumber" />
+          </Key>
+          <Property Name="AccountNumber" Type="int" Nullable="false" />
+          <Property Name="OriginalLoanAmount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Term" Type="int" Nullable="false" />
+          <Property Name="MaturityDate" Type="date" Nullable="false" />
+          <Property Name="APR" Type="decimal" Precision="10" Scale="3" Nullable="false" />
+        </EntityType>
         <Association Name="FK_Account_TypeCode">
           <End Role="AccountType" Type="Self.AccountType" Multiplicity="1" />
           <End Role="Account" Type="Self.Account" Multiplicity="*" />
@@ -46,6 +75,30 @@
             </Principal>
             <Dependent Role="Account">
               <PropertyRef Name="TypeCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CertificateDeposit_Acct">
+          <End Role="Account" Type="Self.Account" Multiplicity="1" />
+          <End Role="CertificateDeposit" Type="Self.CertificateDeposit" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="AccountNumber" />
+            </Principal>
+            <Dependent Role="CertificateDeposit">
+              <PropertyRef Name="AccountNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CreditCardAccount_Acct">
+          <End Role="Account" Type="Self.Account" Multiplicity="1" />
+          <End Role="CreditCardAccount" Type="Self.CreditCardAccount" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="AccountNumber" />
+            </Principal>
+            <Dependent Role="CreditCardAccount">
+              <PropertyRef Name="AccountNumber" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -73,14 +126,37 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_LoanAccount_Acct">
+          <End Role="Account" Type="Self.Account" Multiplicity="1" />
+          <End Role="LoanAccount" Type="Self.LoanAccount" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="AccountNumber" />
+            </Principal>
+            <Dependent Role="LoanAccount">
+              <PropertyRef Name="AccountNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="Interview101ModelStoreContainer">
           <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AccountType" EntityType="Self.AccountType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CertificateDeposit" EntityType="Self.CertificateDeposit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CreditCardAccount" EntityType="Self.CreditCardAccount" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CustomerAccount" EntityType="Self.CustomerAccount" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoanAccount" EntityType="Self.LoanAccount" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Account_TypeCode" Association="Self.FK_Account_TypeCode">
             <End Role="AccountType" EntitySet="AccountType" />
             <End Role="Account" EntitySet="Account" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CertificateDeposit_Acct" Association="Self.FK_CertificateDeposit_Acct">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="CertificateDeposit" EntitySet="CertificateDeposit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CreditCardAccount_Acct" Association="Self.FK_CreditCardAccount_Acct">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="CreditCardAccount" EntitySet="CreditCardAccount" />
           </AssociationSet>
           <AssociationSet Name="FK_CustomerAccount_AccountNumber" Association="Self.FK_CustomerAccount_AccountNumber">
             <End Role="Account" EntitySet="Account" />
@@ -90,9 +166,12 @@
             <End Role="Customer" EntitySet="Customer" />
             <End Role="CustomerAccount" EntitySet="CustomerAccount" />
           </AssociationSet>
+          <AssociationSet Name="FK_LoanAccount_Acct" Association="Self.FK_LoanAccount_Acct">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="LoanAccount" EntitySet="LoanAccount" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Interview101Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -153,6 +232,23 @@
             <End Role="Customer" EntitySet="Customers" />
           </AssociationSet>
         </EntityContainer>
+        <EntityType Name="CreditCardAccount" BaseType="Interview101Model.Account">
+          <Property Name="ExpirationDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="PurchaseAPR" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="CashAPR" Type="Decimal" Nullable="false" Precision="10" Scale="3" />
+        </EntityType>
+        <EntityType Name="LoanAccount" BaseType="Interview101Model.Account">
+          <Property Name="OriginalLoanAmount" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="Term" Type="Int32" Nullable="false" />
+          <Property Name="MaturityDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="APR" Type="Decimal" Nullable="false" Precision="10" Scale="3" />
+        </EntityType>
+        <EntityType Name="CertificateDeposit" BaseType="Interview101Model.Account">
+          <Property Name="Principal" Type="Decimal" Nullable="false" Precision="20" Scale="2" />
+          <Property Name="Term" Type="Int32" Nullable="false" />
+          <Property Name="MaturityDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="APY" Type="Decimal" Nullable="false" Precision="10" Scale="3" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -160,12 +256,38 @@
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="Interview101ModelStoreContainer" CdmEntityContainer="Interview101Entities1">
           <EntitySetMapping Name="Accounts">
-            <EntityTypeMapping TypeName="Interview101Model.Account">
+            <EntityTypeMapping TypeName="IsTypeOf(Interview101Model.Account)">
               <MappingFragment StoreEntitySet="Account">
                 <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
-                <ScalarProperty Name="Balance" ColumnName="Balance" />
-                <ScalarProperty Name="OpenDate" ColumnName="OpenDate" />
                 <ScalarProperty Name="TypeCode" ColumnName="TypeCode" />
+                <ScalarProperty Name="OpenDate" ColumnName="OpenDate" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(Interview101Model.LoanAccount)">
+              <MappingFragment StoreEntitySet="LoanAccount">
+                <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+                <ScalarProperty Name="OriginalLoanAmount" ColumnName="OriginalLoanAmount" />
+                <ScalarProperty Name="Term" ColumnName="Term" />
+                <ScalarProperty Name="MaturityDate" ColumnName="MaturityDate" />
+                <ScalarProperty Name="APR" ColumnName="APR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(Interview101Model.CreditCardAccount)">
+              <MappingFragment StoreEntitySet="CreditCardAccount">
+                <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+                <ScalarProperty Name="ExpirationDate" ColumnName="ExpirationDate" />
+                <ScalarProperty Name="PurchaseAPR" ColumnName="PurchaseAPR" />
+                <ScalarProperty Name="CashAPR" ColumnName="CashAPR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(Interview101Model.CertificateDeposit)">
+              <MappingFragment StoreEntitySet="CertificateDeposit">
+                <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+                <ScalarProperty Name="Principal" ColumnName="Principal" />
+                <ScalarProperty Name="Term" ColumnName="Term" />
+                <ScalarProperty Name="MaturityDate" ColumnName="MaturityDate" />
+                <ScalarProperty Name="APY" ColumnName="APY" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
