@@ -1,7 +1,9 @@
-﻿@model CWS.SimpleBank.Data.Customer
+﻿@using CWS.SimpleBank.Data 
+@model CWS.SimpleBank.Data.Customer
 
 @{
     ViewBag.Title = "Accounts";
+    int customerNumber = Model.CustomerNumber;
 }
 
 <h2>Accounts</h2>
@@ -107,11 +109,30 @@
             </th>
             <th></th>
         </tr>
-        @* List the certificate of deposit here *@
+        @* List the certificate of deposits here *@
     </table>
 </div>
 
+<div id="calculator" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="col-md-8">
+                    <h4 class="modal-title">Interest Calculator</h4>
+                </div>
+                <div class="col-md-4">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+            </div>
+            <div class="modal-body"></div>
+        </div>
+    </div>
+</div>
 
 <p>
     @Html.ActionLink("Back to Customers", "GetAll")
 </p>
+
+<script language="javascript" type="text/javascript">
+    @* Display calculator View in dialog box *@
+</script>

@@ -107,7 +107,7 @@ namespace CWS.SimpleBank
         {
             using (CWS.SimpleBank.Data.Interview101Entities1 db = new Interview101Entities1())
             {
-                Customer customer = db.Customers.Include("Accounts").Include("Accounts.AccountType").Where(c => c.CustomerNumber == customerNumber).FirstOrDefault();
+                Customer customer = db.Customers.Include("Accounts").Include("Accounts.AccountType").Include("Accounts.Customers").Where(c => c.CustomerNumber == customerNumber).FirstOrDefault();
                 if (customer == null)
                     throw new KeyNotFoundException();
 
