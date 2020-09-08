@@ -15,11 +15,9 @@ namespace CWS.SimpleBank.Models
         /// <param name="rate"></param>
         /// <param name="month"></param>
         /// <returns></returns>
-        /// <remarks>Default interest is simple interest; calculate daily rate based 360 days/year; and days will need to converted to months then convert to 30 days/month.  
-        /// Interest amount is presentValue * dailyRate * calculatedDays </remarks>
         public decimal CalculateInterest(Account account, int days)
         {
-            throw new NotImplementedException();
+            return account.Balance;
         }
     }
 }

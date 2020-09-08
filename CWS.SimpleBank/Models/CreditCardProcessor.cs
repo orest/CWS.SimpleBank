@@ -15,10 +15,16 @@ namespace CWS.SimpleBank.Models
         /// <param name="rate"></param>
         /// <param name="month"></param>
         /// <returns></returns>
-        /// <remarks>Credit Card interest is simple interest based on average balance; average balance would not change in this case, therefore, the presentValue is the current balance. 
-        /// Calculate daily rate based on 365 days a year, interest amount would be presentValue * dailyRate * days </remarks>
         public decimal CalculateInterest(Account account, int days)
         {
+            if (account == null)
+                throw new Exception("Account is null");
+
+            if (account.GetType() == typeof(CreditCardAccount)) {
+                var a = account as CreditCardAccount;
+                return a.Balance * a.PurchaseAPR / 365.0M * (decimal)days;
+            }
+
             throw new NotImplementedException();
         }
     }

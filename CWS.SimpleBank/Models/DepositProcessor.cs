@@ -11,8 +11,7 @@ namespace CWS.SimpleBank.Models
         /// <summary>
         /// Calculate deposit interest
         /// </summary>
-        /// <param name="presentValue"></param>
-        /// <param name="annualRate"></param>
+        /// <param name="account"></param>
         /// <param name="days"></param>
         /// <returns></returns>
         /// <remarks>Deposit interest is compound interest; calculate daily rate based on 365 a year.  Interest Amount is presentValue * (1 + daily rate) ** days  - presentValue</remarks>

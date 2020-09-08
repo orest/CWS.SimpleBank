@@ -11,13 +11,20 @@ namespace CWS.SimpleBank.Models
         /// <summary>
         /// Calculate loan interest
         /// </summary>
-        /// <param name="presentValue"></param>
-        /// <param name="rate"></param>
-        /// <param name="month"></param>
+        /// <param name="account"></param>
+        /// <param name="days"></param>
         /// <returns></returns>
-        /// <remarks>loan interest is simple interest; calculate daily rate based on 365 days a year, interest amount would be presentValue * dailyRate * days </remarks>
         public decimal CalculateInterest(Account account, int days)
         {
+            if (account == null)
+                throw new Exception("Account is null");
+
+            if (account.GetType() == typeof(LoanAccount))
+            {
+                var a = account as LoanAccount;
+                return a.Balance * a.APR / 365.0M * (decimal)days;
+            }
+
             throw new NotImplementedException();
         }
     }
