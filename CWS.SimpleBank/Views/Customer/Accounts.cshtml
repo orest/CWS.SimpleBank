@@ -58,7 +58,13 @@
             </th>
             <th></th>
         </tr>
-        @* List the loan accounts here *@
+
+        @{
+            foreach (var a in Model.Accounts.Where(m => m.AccountType.TypeCode == "L"))
+            {
+                @* List the loan accounts here *@
+            }
+        }
     </table>
 </div>
 
@@ -82,7 +88,14 @@
             </th>
             <th></th>
         </tr>
-        @* List the credit cards here *@
+
+        @{
+            foreach (var a in Model.Accounts.Where(m => m.AccountType.TypeCode == "C"))
+            {
+                @* List the credit cards here *@
+            }
+        }
+
     </table>
 </div>
 
@@ -109,7 +122,12 @@
             </th>
             <th></th>
         </tr>
-        @* List the certificate of deposits here *@
+
+
+        @foreach (var a in Model.Accounts.Where(m => m.AccountType.TypeCode == "D"))
+        {
+            @* List the certificate of deposits here *@
+        }
     </table>
 </div>
 
