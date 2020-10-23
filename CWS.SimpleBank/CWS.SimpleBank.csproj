@@ -142,6 +142,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="BankService.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\API\AccountApiController.cs" />
     <Compile Include="Controllers\API\CustomerApiController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -149,6 +150,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountProcessor.cs" />
+    <Compile Include="Models\AccountProcessorFactory.cs" />
+    <Compile Include="Models\CalculationRequest.cs" />
     <Compile Include="Models\CreditCardProcessor.cs" />
     <Compile Include="Models\DepositProcessor.cs" />
     <Compile Include="Models\IAccountProcessor.cs" />

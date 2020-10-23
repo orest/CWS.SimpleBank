@@ -14,5 +14,11 @@ namespace CWS.SimpleBank.Controllers.API
             BankService service = new BankService();
             return Ok(service.Customers());
         }
+
+        public IHttpActionResult Get(int customerNumber)
+        {
+            BankService service = new BankService();
+            return Ok(service.GetCustomer(customerNumber));
+        }
     }
 }

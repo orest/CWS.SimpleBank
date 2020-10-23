@@ -7,7 +7,7 @@ using CWS.SimpleBank.Data;
 
 namespace CWS.SimpleBank.Models
 {
-    interface IAccountProcessor
+    public interface IAccountProcessor
     {
         decimal CalculateInterest(Account account, int days);
     }
