@@ -18,6 +18,8 @@ namespace CWS.SimpleBank.Data
         public Interview101Entities1()
             : base("name=Interview101Entities1")
         {
+            this.Configuration.LazyLoadingEnabled = false;
+            this.Configuration.ProxyCreationEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

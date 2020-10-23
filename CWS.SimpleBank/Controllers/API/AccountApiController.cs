@@ -10,7 +10,8 @@ namespace CWS.SimpleBank.Controllers.API
 {
     public class AccountApiController : ApiController
     {
-        public IHttpActionResult CalculateInterest(CalculationRequest calRequest)
+        [Route("api/AccountApi/CalculateInterest")]
+        public IHttpActionResult PostCalculateInterest(CalculationRequest calRequest)
         {
 
             BankService service = new BankService();
@@ -25,19 +26,6 @@ namespace CWS.SimpleBank.Controllers.API
                 }
             }
             return BadRequest();
-        }
-
-        public IHttpActionResult Calculator(CalculationRequest calRequest)
-        {
-            BankService service = new BankService();
-            var customer = service.GetCustomer(calRequest.CustomerNumber);
-            if (customer != null)
-            {
-                var account = customer.Accounts?.Where(c => c.AccountNumber == calRequest.AccountNumber).FirstOrDefault();
-                return Ok(account);
-            }
-
-            return BadRequest();
-        }
+        }        
     }
 }
