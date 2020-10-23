@@ -10,12 +10,17 @@ namespace CWS.SimpleBank.Models
     {
         public static IAccountProcessor GetAccountProcessor(Account account)
         {
-            var accountType = account.GetType();
-            if (accountType == typeof(CertificateDeposit))
+            if (account == null)
+                throw new Exception("Account should not be null");
+
+            if (account.AccountType == null)
+                return new AccountProcessor();
+
+            if (account.AccountType.TypeCode == "D")
                 return new DepositProcessor();
-            else if (accountType == typeof(CreditCardAccount))
+            else if (account.AccountType.TypeCode == "C")
                 return new CreditCardProcessor();
-            else if (accountType == typeof(LoanAccount))
+            else if (account.AccountType.TypeCode == "L")
                 return new LoanProcessor();
             else
                 return new AccountProcessor();
