@@ -1,0 +1,79 @@
+﻿@import url('https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i');
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+.btn-primary{background-color: #476cac !important}
+.reset-padding-left { padding-left: 0 !important; }
+.reset-padding-right { padding-right: 0 !important; }
+.reset-padding { padding-left: 0 !important; padding-right: 0 !important; }
+.btn:hover { background-color:#428bca !important; }
+a:hover, a:focus {color: #428bca; }
+
+.alert { margin: 30px auto; }
+/* Sign in Page */
+.sign-in-page, .registration-page, .page { background-color: #dfe6f1; padding-top: 50px; max-width: 60%; margin: 0 auto; }
+.sign-in-page,.registration-page { padding-top: 0px;}
+.logo-link { display: inline-block; width: 100%; text-align: center; padding-bottom: 50px; }
+.logo-link img { max-width: 120px; height: auto; text-align: center; }
+.sub-header-sign-in p { text-align: center; font-size: 24px; ; font-family: 'Lato', sans-serif; font-weight: 700 ; color: #000;  }
+.gray { color: #6f7378 ; }
+.blue { color: #2e5087 ; }
+.material-icons { vertical-align: middle; }
+.form-sign-in { max-width: 90%; margin: 30px auto; }
+.form-control { padding: 30px 0px !important; border: inherit !important;  -webkit-box-shadow: inherit !important; box-shadow: inherit !important; -webkit-transition: inherit !important; -o-transition: inherit !important; font-size: 22px !important; color: #274061 !important; font-weight: 500; }
+.input-group-addon { border: inherit !important; background-color: #fff !important;  }
+.icon-blue { color: #476dad; }
+.form-group { margin-bottom: 35px; }
+.links-form { display: block; margin-bottom: 15px; color: #2e5087 ; text-align: left; font-size: 20px; ; font-family: 'Lato', sans-serif; ; font-weight: 700 ; }
+.links-form > i { vertical-align: text-bottom; padding-right: 10px; }
+.links-form:hover { text-decoration: inherit; }
+.submit-form-btn { border: inherit !important; font-weight: 700 !important; background-color: #476cac !important; }
+/* Registration Page */
+.sub-header-registration p, .light-blue-header { text-align: center; font-size: 42px; ; font-family: 'Lato', sans-serif; ; font-weight: 300 ; color: #000; }
+/* Page 3 */
+.page { max-width: 80%; margin: 0 auto; text-align: center;}
+.big-parag, .sub-header-page { color: #677377;  text-align: center; font-size: 26px; ; font-family: 'Lato', sans-serif; ; font-weight: 500 ; line-height: 1.6;}
+.sub-header-page { font-size: 36px; margin: 30px auto; }
+.btn-page { font-weight: 300;  font-family: 'Lato', sans-serif; ; font-size: 36px; margin: 0 20px; border: inherit !important; background-color: #476cac !important; padding: 20px 55px; }
+/*  apostolic page */
+.apostolic-page {  }
+.header-apostolic-page { padding: 30px 0; background-color: #2e5087; } 
+.logo-link-small img { max-width: 60px; }
+.account-header-link { color: #fff; vertical-align: middle; padding-top: 20px; }
+.circle-link { display: inline-block; width: 19.7%; height: 7px; background-color: #dfe6f1; margin-left: -5px; margin-top: 40px; text-align: right; }
+
+.circle-link-text { padding-top: 15px; display: inline-block; color: #acb8bc; text-align: right; margin-right: -20px; }
+/*.circle-link:first-child, .circle-link:nth-child(2)  { text-align: left; }
+.circle-link:last-child, .circle-link:nth-child(4)  { text-align: right; }*/
+.circle-btn { height: 25px; width: 25px; display: block;  border-radius: 50%; margin-top: -10px; margin-left: auto;  position: relative; z-index: 99; background-color: #dfe6f1;}
+.circle-link-active .circle-btn, .circle-link-active  { background-color: #2e5087;}
+.circle-link-active .circle-link-text { color: #3b6499; }
+.light-blue-header { text-align: left; font-size: 52px; ;  color: #274061; margin-bottom: 40px;}
+.default-parag { color: #546064; font-family: 'Lato', sans-serif; ; font-weight: 500; font-size: 20px; line-height: 1.9; }
+.btn-group { margin-top: 30px; }
+.btn-group a.btn-default { font-weight:500; background-color: #fff !important; border: 1px solid #dfe6f1; padding-top: 25px !important; padding-bottom: 25px !important; font-size: 13px; color: #3b6499;line-height: 26px }
+.btn-group a.btn-default i { display: none; }
+.btn-group a.btn-active, .btn-group a.btn-default:hover  { background-color: #2e5087 !important;  color: #fff;}
+.btn-group a.btn-active i , .btn-group a.btn-default:hover i   { display: inline-block; color: #fff; }
+.divider-content { position: relative; height: 1px; border: none; background-color: #dfe6f1; width: 100%; display: block; margin: 50px auto; }
+footer { margin-top: 60px; background-color: #dfe6f1; padding: 30px 0; text-align: right; }
+.link-footer-next { font-family: 'Lato', sans-serif;  font-weight: 300; color: #fff; font-size: 42px;  }
+.link-footer-next strong {  font-weight: 700; color: #2e5087; cursor: pointer }
+.link-footer-next img {  cursor: pointer }
+
+/*  apostolic statements page */
+.quote { margin: 40px  0; margin-left: 30px;  border-left: 6px solid #ff9000; padding-left: 20px; color: #9caaae; font-size: 18px; font-family: 'Lato', sans-serif; line-height: 2; }
+.sub-title-bold, .item-apostolic-statement, .letter-li { font-size: 22px; font-weight: 900; font-family: 'Lato', sans-serif; color: #546064; }
+.list-statement { margin: 0; padding: 0; border: 1px solid #dfe6f1; list-style: none; cursor: move}
+.item-statement { font-size: 18px; padding: 15px;  border-bottom: 1px solid #dfe6f1;  }
+.item-statement:last-child { border-bottom: none;  }
+.letter-li { color: #ff9000; font-size: 18px; padding-left: 15px; max-width: 20px; margin-right: 16px}
+.item-statement a { text-align: right; color: #9caaae;cursor: move}
+.item-statement.ui-sortable-helper{box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2); }
+.sub-title-bold { margin-bottom: 30px; }
+.graph_wrap{margin-top: 20px}
+.result-page { text-align: center; }
+.result-page .light-blue-header { text-align: center; }
+.padT16{padding-top: 16px}
+.width220{width: 220px}
+.margin-T-20{ margin-top: 20px;}

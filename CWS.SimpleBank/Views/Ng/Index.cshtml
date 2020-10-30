@@ -1,0 +1,81 @@
+﻿
+@{
+    ViewBag.Title = "title";
+    Layout = null;
+
+}
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Sample Financial
+    </title>
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <base href="/ng/">
+    <link href="~/Content/toastr.css" rel="stylesheet" />
+
+</head>
+
+<body ng-controller="ShellController as shell">
+
+    <div class="navbar navbar-inverse ">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Simple Bank", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Customers", "GetAll", "Customer")</li>
+                    <li>@Html.ActionLink("Ng", "Index", "Ng")</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <div ui-view name="mainContent"></div>
+
+    @Scripts.Render("~/bundles/jquery")
+    <script src="~/Scripts/jquery-ui.min.js"></script>
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/Scripts/angular-ui-router.js"></script>
+    <script src="~/Scripts/sortable.js"></script>
+    <script src="~/Scripts/toastr.js"></script>
+    <script src="~/Scripts/underscore.js"></script>
+    <script src="~/Scripts/angular-sanitize.js"></script>
+    <script src="~/js/app/common/exception/exception.module.js"></script>
+    <script src="~/js/app/common/exception/exception.js"></script>
+
+    <script src="~/js/app/common/exception/exception-handler.provider.js"></script>
+    <script src="~/js/app/common/logger/logger.module.js"></script>
+    <script src="~/js/app/common/logger/logger.js"></script>
+    <script src="~/js/app/common/router/router.module.js"></script>
+    <script src="~/js/app/common/router/router-helper.provider.js"></script>
+    <script src="~/js/app/core/core.module.js"></script>
+
+    <script src="~/js/app/core/config.js"></script>
+    <script src="~/js/app/core/constants.js"></script>
+    <script src="~/js/app/core/core.route.js"></script>
+    <script src="~/js/app/core/services/utility.service.js"></script>
+
+    <script src="~/js/app/customer/customer.module.js"></script>
+    <script src="~/js/app/customer/controllers/customer.controller.js"></script>
+    <script src="~/js/app/customer/controllers/customer-accounts.controller.js"></script>
+    <script src="~/js/app/customer/customer.route.js"></script>
+    <script src="~/js/app/customer/customer.service.js"></script>
+
+    <script src="~/js/app/layout/layout.module.js"></script>
+    <script src="~/js/app/layout/shell.controller.js"></script>
+    <script src="~/js/app/app.module.js"></script>
+</body>
+</html>
+
