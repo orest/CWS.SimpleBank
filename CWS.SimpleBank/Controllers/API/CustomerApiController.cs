@@ -12,7 +12,10 @@ namespace CWS.SimpleBank.Controllers.API
         public IHttpActionResult Get()
         {
             BankService service = new BankService();
-            return Ok(service.Customers());
+            return Ok(service.Customers().Select(p=>new
+            {
+                p.CustomerNumber, p.FirstName, p.LastName
+            }));
         }
 
         public IHttpActionResult Get(int id)

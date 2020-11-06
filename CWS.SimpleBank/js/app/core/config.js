@@ -13,7 +13,7 @@
         appTitle: "CWS Sample Financial",
         loginState: "login",
         dashboardState: "customers",
-        apiUrl: "https://simplebankapi.azurewebsites.net//api/"
+        apiUrl: "https://simplebankapi.azurewebsites.net/api/"
     };
 
     core.value("config", config);
