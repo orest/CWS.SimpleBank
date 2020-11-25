@@ -33,8 +33,9 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Customers", "GetAll", "Customer")</li>
+
                     <li>@Html.ActionLink("Ng", "Index", "Ng")</li>
+                    <li><a href="/ng/todo-admin">Task Admin</a></li>
                 </ul>
             </div>
 
@@ -72,6 +73,11 @@
     <script src="~/js/app/customer/controllers/customer-accounts.controller.js"></script>
     <script src="~/js/app/customer/customer.route.js"></script>
     <script src="~/js/app/customer/customer.service.js"></script>
+
+    <script src="~/js/app/todo-admin/todo-admin.module.js"></script>
+    <script src="~/js/app/todo-admin/controllers/todo-admin.controller.js"></script>
+    <script src="~/js/app/todo-admin/todo-admin.route.js"></script>
+
 
     <script src="~/js/app/layout/layout.module.js"></script>
     <script src="~/js/app/layout/shell.controller.js"></script>

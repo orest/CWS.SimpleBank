@@ -217,6 +217,10 @@
     <Content Include="js\app\customer\controllers\customer.controller.js" />
     <Content Include="js\app\customer\customer.module.js" />
     <Content Include="js\app\customer\customer.service.js" />
+    <Content Include="js\app\todo-admin\controllers\todo-admin.controller.js" />
+    <Content Include="js\app\todo-admin\templates\todo-admin.html" />
+    <Content Include="js\app\todo-admin\todo-admin.module.js" />
+    <Content Include="js\app\todo-admin\todo-admin.route.js" />
     <Content Include="Scripts\angular-bootstrap-toggle.min.js" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular-sanitize.js" />
